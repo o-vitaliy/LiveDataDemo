@@ -1,0 +1,26 @@
+image: ovitaliy/android
+
+stages:
+- build
+- test
+
+cache:
+  key: ${CI_PROJECT_ID}
+  paths:
+  - .gradle/
+
+before_script:
+- export GRADLE_USER_HOME=$(pwd)/.gradle
+- chmod +x ./gradlew
+- java -version
+
+build:
+  stage: build
+  script:
+  - ./gradlew -stop
+  - ./gradlew assembleDebug
+  
+unitTests:
+  stage: test
+  script:
+    - ./gradlew testDebug
