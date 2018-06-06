@@ -8,7 +8,7 @@
 
         <variable
             name="user"
-            type="com.example.livedatademo.User" />
+            type="com.example.livedatademo.domain.user.model.User" />
 
     </data>
 
