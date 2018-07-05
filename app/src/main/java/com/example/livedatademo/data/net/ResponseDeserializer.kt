@@ -1,4 +1,4 @@
-package com.example.livedatademo.data.user.net
+package com.example.livedatademo.data.net
 
 import retrofit2.Response
 

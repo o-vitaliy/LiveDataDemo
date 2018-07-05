@@ -1,4 +1,4 @@
-package com.example.livedatademo.data.user.net.deserializer
+package com.example.livedatademo.data.net.deserializer
 
 import com.google.gson.JsonDeserializationContext
 import com.google.gson.JsonDeserializer

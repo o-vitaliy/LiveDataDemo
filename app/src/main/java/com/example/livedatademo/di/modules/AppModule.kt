@@ -3,9 +3,9 @@ package com.example.livedatademo.di.modules
 import android.content.Context
 import android.content.SharedPreferences
 import android.preference.PreferenceManager
-import com.example.livedatademo.data.user.net.ClientFactory
-import com.example.livedatademo.data.user.net.GsonFactory
-import com.example.livedatademo.data.user.net.RetrofitFactory
+import com.example.livedatademo.data.net.ClientFactory
+import com.example.livedatademo.data.net.GsonFactory
+import com.example.livedatademo.data.net.RetrofitFactory
 import com.google.gson.Gson
 import dagger.Module
 import dagger.Provides
