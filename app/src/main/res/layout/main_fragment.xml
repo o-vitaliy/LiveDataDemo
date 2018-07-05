@@ -6,6 +6,12 @@
 
     <data>
 
+        <import type="android.view.View" />
+
+        <variable
+            name="loading"
+            type="java.lang.Boolean" />
+
         <variable
             name="user"
             type="com.example.livedatademo.domain.user.model.User" />
@@ -34,8 +40,9 @@
 
         <ProgressBar
             android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:indeterminate="true"
-            android:layout_height="wrap_content" />
+            android:visibility="@{loading ? View.VISIBLE : View.GONE}" />
 
     </android.support.constraint.ConstraintLayout>
 </layout>

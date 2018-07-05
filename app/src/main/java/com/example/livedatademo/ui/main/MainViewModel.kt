@@ -1,14 +1,23 @@
 package com.example.livedatademo.ui.main
 
+import android.arch.lifecycle.LiveData
 import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
-import com.example.livedatademo.RemoteUser
 import com.example.livedatademo.domain.user.model.User
+import com.example.livedatademo.domain.user.usecase.GetUserUseCase
 import kotlinx.coroutines.experimental.launch
+import javax.inject.Inject
 
-class MainViewModel : ViewModel() {
+class MainViewModel @Inject constructor(
+        private val getUserUseCase: GetUserUseCase
+) : ViewModel() {
 
-    val user = MutableLiveData<User>()
+    private val userMutable = MutableLiveData<User>()
+    val user = userMutable as LiveData<User>
+
+    private val loadingMutable = MutableLiveData<Boolean>()
+    val loading = loadingMutable as LiveData<Boolean>
+
 
     init {
         loadUser()
@@ -16,7 +25,14 @@ class MainViewModel : ViewModel() {
 
     private fun loadUser() {
         launch {
-            user.postValue(RemoteUser().getRemoteUser())
+            getUserUseCase.beforeExecute = { loadingMutable.postValue(true) }
+            getUserUseCase.terminated = { loadingMutable.postValue(false) }
+            val r = getUserUseCase.execute(GetUserUseCase.Params("o-vitaliy"))
+                    .await()
+                    .data
+            r?.let {
+                userMutable.postValue(it)
+            }
         }
     }
 }

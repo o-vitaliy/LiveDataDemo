@@ -6,8 +6,9 @@ import com.example.livedatademo.domain.user.mapper.UserEntityToModelMapper
 import com.example.livedatademo.domain.user.model.User
 import kotlinx.coroutines.experimental.Deferred
 import kotlinx.coroutines.experimental.async
+import javax.inject.Inject
 
-class UserRepositoryImpl(
+class UserRepositoryImpl @Inject constructor(
         private val userDataSource: UserDataSource,
         private val userEntityToModelMapper: UserEntityToModelMapper
 ) : UserRepository {

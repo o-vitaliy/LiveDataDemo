@@ -1,6 +1,7 @@
 package com.example.livedatademo.ui.main
 
 import android.arch.lifecycle.Observer
+import android.arch.lifecycle.ViewModelProvider
 import android.arch.lifecycle.ViewModelProviders
 import android.databinding.DataBindingUtil
 import android.os.Bundle
@@ -10,8 +11,14 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.livedatademo.R
 import com.example.livedatademo.databinding.MainFragmentBinding
+import com.example.livedatademo.ui.common.getViewModel
+import dagger.android.support.DaggerFragment
+import javax.inject.Inject
 
-class MainFragment : Fragment() {
+class MainFragment : DaggerFragment() {
+
+    @Inject
+    lateinit var viewModelFactory: ViewModelProvider.Factory
 
     private var biding: MainFragmentBinding? = null
 
@@ -24,10 +31,12 @@ class MainFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        val mViewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
-
+        val mViewModel = getViewModel<MainViewModel>(viewModelFactory)
         mViewModel.user.observe(this, Observer {
             biding?.user = it
+        })
+        mViewModel.loading.observe(this, Observer {
+            biding?.loading = it
         })
 
     }

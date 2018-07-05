@@ -13,7 +13,7 @@ class GetUserUseCase
         private val repository: UserRepository
 ) : BaseUseCase<GetUserUseCase.Params, User>() {
 
-    override suspend fun execute(params: Params): Deferred<User> = repository.getUser(params.name)
+    override suspend fun run(params: Params): Deferred<User> = repository.getUser(params.name)
 
     data class Params(val name: String)
 }
