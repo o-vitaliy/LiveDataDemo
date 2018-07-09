@@ -1,8 +1,8 @@
 package com.example.livedatademo.data.user.repository
 
 import com.example.livedatademo.data.user.datasource.UserDataSource
+import com.example.livedatademo.data.user.mapper.UserEntityToModelMapper
 import com.example.livedatademo.domain.user.UserRepository
-import com.example.livedatademo.domain.user.mapper.UserEntityToModelMapper
 import com.example.livedatademo.domain.user.model.User
 import kotlinx.coroutines.experimental.Deferred
 import kotlinx.coroutines.experimental.async

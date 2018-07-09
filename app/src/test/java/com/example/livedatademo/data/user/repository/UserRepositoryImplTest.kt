@@ -2,7 +2,7 @@ package com.example.livedatademo.data.user.repository
 
 import com.example.livedatademo.data.user.datasource.UserDataSource
 import com.example.livedatademo.data.user.entity.UserEntity
-import com.example.livedatademo.domain.user.mapper.UserEntityToModelMapper
+import com.example.livedatademo.data.user.mapper.UserEntityToModelMapper
 import com.example.livedatademo.domain.user.model.User
 import kotlinx.coroutines.experimental.runBlocking
 import org.hamcrest.Matchers.equalTo

@@ -24,11 +24,16 @@ android {
         enabled = true
     }
 }
-
+androidExtensions {
+    experimental = true
+}
 kotlin {
     experimental {
         coroutines 'enable'
     }
+}
+kapt{
+    generateStubs = true
 }
 
 dependencies {
@@ -53,6 +58,11 @@ dependencies {
 
     implementation deps.timber
 
+    implementation deps.groupie.core
+    implementation deps.groupie.extensions
+    implementation deps.groupie.databinding
+
+    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
     kapt deps.dagger.android_support_compiler
     kapt deps.dagger.compiler
     kapt deps.room.compiler

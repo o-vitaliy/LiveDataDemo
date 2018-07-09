@@ -157,6 +157,12 @@ navigation.safe_args_plugin = "android.arch.navigation:navigation-safe-args-grad
 navigation.testing_ktx = "android.arch.navigation:navigation-testing-ktx:$versions.navigation"
 deps.navigation = navigation
 
+def groupie = [:]
+groupie.core = "com.xwray:groupie:2.1.0"
+groupie.extensions = "com.xwray:groupie-kotlin-android-extensions:2.1.0"
+groupie.databinding = "com.xwray:groupie-databinding:2.1.0"
+deps.groupie = groupie
+
 def powerMock = [:]
 powerMock.junit = "org.powermock:powermock-module-junit4:$versions.powermock"
 powerMock.junit4Rule = "org.powermock:powermock-module-junit4-rule:$versions.powermock"

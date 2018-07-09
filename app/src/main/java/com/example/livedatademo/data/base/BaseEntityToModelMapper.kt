@@ -1,4 +1,4 @@
-package com.example.livedatademo.domain.base
+package com.example.livedatademo.data.base
 
 interface BaseEntityToModelMapper<in E, out M> {
 

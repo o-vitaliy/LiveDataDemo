@@ -38,7 +38,6 @@ class MainFragment : DaggerFragment() {
         mViewModel.loading.observe(this, Observer {
             biding?.loading = it
         })
-
     }
 
     companion object {
