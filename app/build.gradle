@@ -12,7 +12,7 @@ android {
         targetSdkVersion build_versions.target_sdk
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
         release {
@@ -37,35 +37,29 @@ kapt{
 }
 
 dependencies {
-    implementation deps.support.app_compat
+    implementation deps.support.core
+    implementation deps.support.core_ktx
+    implementation deps.support.fragment_ktx
     implementation deps.support.recyclerview
-    implementation deps.support.cardview
-    implementation deps.support.design
-    implementation deps.navigation.fragment_ktx
-    implementation deps.room.runtime
-    implementation deps.lifecycle.runtime
-    implementation deps.lifecycle.extensions
-    implementation deps.lifecycle.java8
     implementation deps.retrofit.runtime
     implementation deps.retrofit.gson
     implementation deps.glide.runtime
 
+    implementation deps.lifecycle.runtime
+    implementation deps.lifecycle.extensions
+    implementation deps.lifecycle.common
+
     implementation deps.dagger.runtime
-    implementation deps.dagger.android
-    implementation deps.dagger.android_support
-    implementation deps.constraint_layout
     implementation deps.kotlin.stdlib
 
     implementation deps.timber
+    implementation deps.constraint_layout
 
     implementation deps.groupie.core
     implementation deps.groupie.extensions
     implementation deps.groupie.databinding
 
-    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
-    kapt deps.dagger.android_support_compiler
     kapt deps.dagger.compiler
-    kapt deps.room.compiler
     kapt deps.lifecycle.compiler
 
     testImplementation deps.junit
@@ -76,7 +70,7 @@ dependencies {
 
     kaptTest deps.dagger.compiler
 
-    compile "org.jetbrains.kotlinx:kotlinx-coroutines-core:0.21"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:0.21"
 }
 repositories {
     mavenCentral()

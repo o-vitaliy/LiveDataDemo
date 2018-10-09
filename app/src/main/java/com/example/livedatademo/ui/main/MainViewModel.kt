@@ -1,8 +1,8 @@
 package com.example.livedatademo.ui.main
 
-import android.arch.lifecycle.LiveData
-import android.arch.lifecycle.MutableLiveData
-import android.arch.lifecycle.ViewModel
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import com.example.livedatademo.domain.user.model.User
 import com.example.livedatademo.domain.user.usecase.GetUserUseCase
 import kotlinx.coroutines.experimental.launch

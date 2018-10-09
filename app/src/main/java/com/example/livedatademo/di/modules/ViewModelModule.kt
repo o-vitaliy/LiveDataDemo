@@ -1,7 +1,7 @@
 package com.example.livedatademo.di.modules
 
-import android.arch.lifecycle.ViewModel
-import android.arch.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import com.example.livedatademo.di.qualifier.ViewModelKey
 import com.example.livedatademo.ui.common.ViewModelFactory
 import com.example.livedatademo.ui.main.MainViewModel

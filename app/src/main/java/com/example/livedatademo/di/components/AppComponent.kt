@@ -1,22 +1,15 @@
 package com.example.livedatademo.di.components
 
 import android.content.Context
-import com.example.livedatademo.App
-import com.example.livedatademo.di.modules.ActivityBuilder
-import com.example.livedatademo.di.modules.ApiModule
-import com.example.livedatademo.di.modules.AppModule
-import com.example.livedatademo.di.modules.DataSourceModule
-import com.example.livedatademo.di.modules.RepositoriesModule
-import com.example.livedatademo.di.modules.ViewModelModule
+import com.example.livedatademo.di.modules.*
+import com.example.livedatademo.ui.main.MainFragment
+import com.example.livedatademo.ui.repos.ReposFragment
 import dagger.Component
-import dagger.android.AndroidInjector
-import dagger.android.support.AndroidSupportInjectionModule
 import retrofit2.Retrofit
 import javax.inject.Singleton
 
 @Singleton
 @Component(modules = [
-    AndroidSupportInjectionModule::class,
     ActivityBuilder::class,
     AppModule::class,
     ApiModule::class,
@@ -24,10 +17,12 @@ import javax.inject.Singleton
     RepositoriesModule::class,
     ViewModelModule::class
 ])
-interface AppComponent : AndroidInjector<App> {
+interface AppComponent {
 
     fun context(): Context
 
     fun retrofit(): Retrofit
 
+    fun inject(f: MainFragment)
+    fun inject(f: ReposFragment)
 }

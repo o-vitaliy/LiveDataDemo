@@ -6,9 +6,9 @@ import android.view.View;
 import com.example.livedatademo.ui.main.MainFragment;
 import com.example.livedatademo.ui.repos.ReposFragment;
 
-import dagger.android.support.DaggerAppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 
-public class MainActivity extends DaggerAppCompatActivity {
+public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

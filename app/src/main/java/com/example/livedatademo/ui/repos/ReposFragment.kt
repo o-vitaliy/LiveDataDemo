@@ -1,24 +1,23 @@
 package com.example.livedatademo.ui.repos
 
-import android.arch.lifecycle.Observer
-import android.arch.lifecycle.ViewModelProvider
-import android.databinding.DataBindingUtil
 import android.os.Bundle
-import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.livedatademo.R
-import com.example.livedatademo.databinding.MainFragmentBinding
 import com.example.livedatademo.databinding.ReposFragmentBinding
+import com.example.livedatademo.di.components.AppComponent
+import com.example.livedatademo.ui.base.BaseDaggerFragment
 import com.example.livedatademo.ui.common.getViewModel
-import com.example.livedatademo.ui.main.MainFragment
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.ViewHolder
-import dagger.android.support.DaggerFragment
 import javax.inject.Inject
 
-class ReposFragment : DaggerFragment() {
+class ReposFragment : BaseDaggerFragment() {
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
@@ -26,6 +25,8 @@ class ReposFragment : DaggerFragment() {
     private var biding: ReposFragmentBinding? = null
 
     private val adapter = GroupAdapter<ViewHolder>()
+
+    override fun inject(component: AppComponent) = component.inject(this)
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {

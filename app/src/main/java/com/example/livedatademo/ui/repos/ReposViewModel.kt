@@ -1,13 +1,13 @@
 package com.example.livedatademo.ui.repos
 
-import android.arch.lifecycle.LiveData
-import android.arch.lifecycle.MutableLiveData
-import android.arch.lifecycle.ViewModel
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import com.example.livedatademo.domain.repos.usecase.GetReposUseCase
+import com.example.livedatademo.ui.repos.mappers.RepoMapper
 import com.xwray.groupie.Group
 import kotlinx.coroutines.experimental.launch
 import javax.inject.Inject
-import com.example.livedatademo.ui.repos.mappers.RepoMapper
 
 class ReposViewModel @Inject constructor(
     private val getReposUseCase: GetReposUseCase,

@@ -1,13 +1,13 @@
 package com.example.livedatademo
 
+import android.app.Application
+import com.example.livedatademo.di.components.AppComponent
 import com.example.livedatademo.di.components.DaggerAppComponent
 import com.example.livedatademo.di.modules.AppModule
-import dagger.android.AndroidInjector
-import dagger.android.support.DaggerApplication
 
-class App : DaggerApplication() {
+class App : Application() {
 
-    override fun applicationInjector(): AndroidInjector<out DaggerApplication> {
-        return DaggerAppComponent.builder().appModule(AppModule(this)).build()
+    val appComponent: AppComponent by lazy(LazyThreadSafetyMode.NONE) {
+        DaggerAppComponent.builder().appModule(AppModule(this)).build()
     }
 }
