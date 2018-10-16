@@ -6,6 +6,7 @@ import com.example.livedatademo.di.qualifier.ViewModelKey
 import com.example.livedatademo.ui.common.ViewModelFactory
 import com.example.livedatademo.ui.main.MainViewModel
 import com.example.livedatademo.ui.repos.ReposViewModel
+import com.example.livedatademo.ui.userSearch.UserSearchViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
@@ -25,6 +26,11 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(ReposViewModel::class)
     internal abstract fun postReposViewModel(viewModel: ReposViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(UserSearchViewModel::class)
+    internal abstract fun postUserSearchViewModel(viewModel: UserSearchViewModel): ViewModel
 
 //Add more ViewModels here
 }

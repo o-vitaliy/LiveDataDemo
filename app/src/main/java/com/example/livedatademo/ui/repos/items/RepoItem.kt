@@ -11,6 +11,4 @@ class RepoItem(private val repo: Repo) : BindableItem<RepoItemBinding>() {
     }
 
     override fun getLayout(): Int = R.layout.repo_item
-
-
 }

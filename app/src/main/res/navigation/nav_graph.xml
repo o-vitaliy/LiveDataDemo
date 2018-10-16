@@ -3,7 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/mainFragment">
+    app:startDestination="@id/userSearchFragment">
+
+    <fragment
+        android:id="@+id/userSearchFragment"
+        android:name="com.example.livedatademo.ui.userSearch.UserSearchFragment"
+        android:label="ReposFragment"
+        tools:layout="@layout/search_user_fragment" />
 
     <fragment
         android:id="@+id/mainFragment"

@@ -9,7 +9,7 @@ import kotlinx.coroutines.experimental.launch
 import javax.inject.Inject
 
 class MainViewModel @Inject constructor(
-    private val getUserUseCase: GetUserUseCase
+        private val getUserUseCase: GetUserUseCase
 ) : ViewModel() {
 
     private val userMutable = MutableLiveData<User>()
@@ -27,8 +27,8 @@ class MainViewModel @Inject constructor(
             getUserUseCase.beforeExecute = { loadingMutable.postValue(true) }
             getUserUseCase.terminated = { loadingMutable.postValue(false) }
             val r = getUserUseCase.execute(GetUserUseCase.Params("o-vitaliy"))
-                .await()
-                .data
+                    .await()
+                    .data
             r?.let {
                 userMutable.postValue(it)
             }
