@@ -18,15 +18,11 @@ class MainViewModel @Inject constructor(
     private val loadingMutable = MutableLiveData<Boolean>()
     val loading = loadingMutable as LiveData<Boolean>
 
-    init {
-        loadUser()
-    }
-
-    private fun loadUser() {
+    fun loadUser(username: String) {
         launch {
             getUserUseCase.beforeExecute = { loadingMutable.postValue(true) }
             getUserUseCase.terminated = { loadingMutable.postValue(false) }
-            val r = getUserUseCase.execute(GetUserUseCase.Params("o-vitaliy"))
+            val r = getUserUseCase.execute(GetUserUseCase.Params(username))
                     .await()
                     .data
             r?.let {

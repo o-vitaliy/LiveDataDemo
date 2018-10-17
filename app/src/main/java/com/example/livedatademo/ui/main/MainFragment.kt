@@ -1,5 +1,6 @@
 package com.example.livedatademo.ui.main
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -23,7 +24,16 @@ class MainFragment : BaseDaggerFragment() {
 
     private var biding: MainFragmentBinding? = null
 
+    private val vm by lazy { getViewModel<MainViewModel>(viewModelFactory) }
+
     override fun inject(component: AppComponent) = component.inject(this)
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        val arguments = checkNotNull(arguments)
+        val username = checkNotNull(arguments.getString(ARG_USERNAME))
+        vm.loadUser(username)
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -41,12 +51,17 @@ class MainFragment : BaseDaggerFragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        val viewModel = getViewModel<MainViewModel>(viewModelFactory)
+        val viewModel = vm
         viewModel.user.observe(this, Observer {
             biding?.user = it
         })
         viewModel.loading.observe(this, Observer {
             biding?.loading = it
         })
+    }
+
+
+    companion object {
+        const val ARG_USERNAME = "username"
     }
 }

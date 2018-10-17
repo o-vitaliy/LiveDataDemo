@@ -5,7 +5,7 @@ import com.example.livedatademo.databinding.UserItemBinding
 import com.example.livedatademo.domain.user.model.User
 import com.xwray.groupie.databinding.BindableItem
 
-class UserItem(private val user: User) : BindableItem<UserItemBinding>() {
+class UserItem(val user: User) : BindableItem<UserItemBinding>() {
     override fun bind(viewBinding: UserItemBinding, position: Int) {
         viewBinding.user = user
     }
